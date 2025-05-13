@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bautista Asociados</title>
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="style4.css" />
+
+    <!-- Archivos de JavaScript-->
+    <script src="carousel2.js"></script>
+    <script src="spinner.js"></script>
+    <script src="burguer.js"></script>
+    <script src="reveal.js"></script>
+
+    <!-- Font Awesome para íconos -->
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Barra de navegación principal con íconos -->
+    <nav class="navbar">
+        <!-- Logo en la barra -->
+        <div class="navbar-logo">
+            <a href="">
+                <img src="../img/BA PNG.svg" alt="Logo BA" />
+            </a>
+        </div>
+         
+        <!-- Botón Hamburguesa (solo visible en móviles) -->
+    <button class="hamburger" aria-label="Menú">
+        <i class="fas fa-bars"></i>
+    </button>
+
+        <!-- Enlaces con íconos -->
+        <ul class="navbar-links" id="menu">
+            <li><a href="#servicios"><i class="fas fa-briefcase"></i> Servicios</a></li>
+            <li><a href="#beneficios"><i class="fas fa-star"></i> Beneficios</a></li>
+            <li><a href="#sobre-nosotros"><i class="fas fa-users"></i> Sobre nosotros</a></li>
+            <li><a href="#noticias"><i class="fas fa-newspaper"></i> Noticias</a></li>
+            <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Hero Principal -->
+    <header class="hero">
+        <div class="hero-content">
+            <!-- Logo -->
+            <img src="../img/BA PNG.svg" alt="Bautista Asociados Logo" class="logo" />
+
+            <!-- Título principal -->
+            <h1>Asesoría contable y fiscal con confianza</h1>
+
+            <!-- Subtítulo o mensaje de valor -->
+            <p>Impulsamos el crecimiento de tu empresa con soluciones contables profesionales.</p>
+
+            <!-- Botón de llamado a la acción -->
+            <a href="#contacto" class="btn-primary">Contáctanos</a>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="section servicios reveal">
+        <h2><i class="fas fa-briefcase"></i> Nuestros Servicios</h2>
+        <div class="servicios-grid">
+            <div class="servicio-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>Contabilidad General</h3>
+                <p>Gestión contable integral para personas físicas y morales.</p>
+            </div>
+            <div class="servicio-item">
+                <i class="fas fa-balance-scale"></i>
+                <h3>Asesoría Fiscal</h3>
+                <p>Planeación y cumplimiento fiscal conforme a las normativas vigentes.</p>
+            </div>
+            <div class="servicio-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Consultoría Empresarial</h3>
+                <p>Optimización de procesos financieros para el crecimiento empresarial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section id="beneficios" class="section beneficios reveal">
+        <h2><i class="fas fa-star"></i> Beneficios de trabajar con nosotros</h2>
+        <div class="beneficios-grid">
+            <div class="beneficio-item">
+                <i class="fas fa-user-shield"></i>
+                <h3>Confianza y Seguridad</h3>
+                <p>Tu información fiscal y contable en manos expertas, protegida y siempre disponible.</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fas fa-clock"></i>
+                <h3>Atención Puntual</h3>
+                <p>Respuestas rápidas y entrega puntual en todos tus trámites y reportes.</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Enfoque en tu crecimiento</h3>
+                <p>Nos alineamos con los objetivos de tu negocio para ayudarte a crecer con estrategia.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Sección Sobre Nosotros -->
+<section id="sobre-nosotros" class="section sobre-nosotros reveal">
+    <h2><i class="fas fa-users"></i> Sobre Nosotros</h2>
+    <div class="sobre-nosotros-content">
+        <p>Somos un despacho contable con más de 15 años de experiencia, comprometido con brindar soluciones eficientes, claras y personalizadas para cada cliente.</p>
+        <p>En Bautista Asociados creemos en la confianza, la ética profesional y el acompañamiento integral para hacer crecer tu negocio.</p>
+    </div>
+</section>
+
+   <!-- Sección de Noticias (Carrusel) -->
+<section id="noticias" class="section noticias reveal">
+    <h2><i class="fas fa-newspaper"></i> Noticias recientes del SAT</h2>
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <!-- Cada noticia será una tarjeta con imagen y texto -->
+            <div class="carousel-item">
+                <img src="../img/carrusel/sat_noticia_1.jpg" alt="Noticia SAT 1" />
+                <div class="carousel-caption">
+                    <h3>Nuevas facilidades fiscales 2025</h3>
+                    <a href="../news/new.html" class="btn-leer-mas">Leer más</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../img/carrusel/sat_noticia_2.jpg" alt="Noticia SAT 2" />
+                <div class="carousel-caption">
+                    <h3>Actualización del buzón tributario</h3>
+                    <a href="../news/new.html" class="btn-leer-mas">Leer más</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../img/carrusel/sat_noticia_3.jpg" alt="Noticia SAT 3" />
+                <div class="carousel-caption">
+                    <h3>Fechas clave de declaración anual</h3>
+                    <a href="../news/new.html" class="btn-leer-mas">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <!-- Controles del carrusel -->
+        <button class="carousel-control prev">&#10094;</button>
+        <button class="carousel-control next">&#10095;</button>
+    </div>
+</section>
+
+
+
+<!-- Sección de Contacto -->
+<section id="contacto" class="section contacto reveal">
+    <h2><i class="fas fa-envelope"></i> Contáctanos</h2>
+    <form class="contacto-form">
+        <div class="form-group">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required />
+        </div>
+        <div class="form-group">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required />
+        </div>
+        <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Enviar</button>
+    </form>
+</section>
+
+<!-- Footer con login visible -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Bautista Asociados. Todos los derechos reservados.</p>
+        <!-- Botón de acceso admin visible y claro -->
+        <a href="http://127.0.0.1:8000/dashboard" class="admin-login-btn">
+            <i class="fas fa-user-cog"></i> Acceso administrativo
+        </a>
+    </div>
+</footer>
+    
+
+</body>
+</html>

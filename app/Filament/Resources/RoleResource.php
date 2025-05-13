@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\EstadoResource\Pages;
-use App\Filament\Resources\EstadoResource\RelationManagers;
-use App\Models\Estado;
+use App\Filament\Resources\RoleResource\Pages;
+use App\Filament\Resources\RoleResource\RelationManagers;
+use App\Models\Role;
 use Filament\Forms;
-use filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -14,10 +14,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-
-class EstadoResource extends Resource
+class RoleResource extends Resource
 {
-    protected static ?string $model = Estado::class;
+    protected static ?string $model = Role::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -25,20 +24,21 @@ class EstadoResource extends Resource
     {
         return $form
             ->schema([
-               
-                    Forms\Components\TextInput::make('nombre')
-                        ->required()
+                TextInput::make('nombre')
+                    ->label('Nombre del Rol')
+                    ->required()
+                    ->maxLength(45),
             ]);
     }
-//php artisan make:filament-resource Estado --generate
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre')
-                //->searchable(),
-                ->formatStateUsing(fn ($state) => is_array($state) ? implode(', ', $state) : $state)
-                ->searchable(),
+                    //->searchable(),
+                    ->formatStateUsing(fn($state) => is_array($state) ? implode(', ', $state) : $state)
+                    ->searchable(),
                 //
             ])
             ->filters([
@@ -64,9 +64,9 @@ class EstadoResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListEstados::route('/'),
-            'create' => Pages\CreateEstado::route('/create'),
-            'edit' => Pages\EditEstado::route('/{record}/edit'),
+            'index' => Pages\ListRoles::route('/'),
+            'create' => Pages\CreateRole::route('/create'),
+            'edit' => Pages\EditRole::route('/{record}/edit'),
         ];
     }
 }

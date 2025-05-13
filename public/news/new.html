@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticia - Bautista Asociados</title>
+  <link rel="stylesheet" href="../landing page/style4.css">
+  <script src="../carousel2.js"></script>
+  <script src="../spinner.js"></script>
+  <script src="../burguer.js"></script>
+  <script src="../reveal.js"></script>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="../landing page/index.html">
+        <img src="../img/BA PNG.svg" alt="Bautista Asociados">
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Menú">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="navbar-links" id="menu">
+      <li><a href="../index.html#servicios"><i class="fas fa-briefcase"></i> Servicios</a></li>
+      <li><a href="../index.html#beneficios"><i class="fas fa-star"></i> Beneficios</a></li>
+      <li><a href="../index.html#sobre-nosotros"><i class="fas fa-users"></i> Sobre nosotros</a></li>
+      <li><a href="../index.html#noticias"><i class="fas fa-newspaper"></i> Noticias</a></li>
+      <li><a href="../index.html#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal de la noticia -->
+  <main class="noticia-container">
+    <section class="noticia">
+      <img class="noticia-img" src="../img/carrusel/sat_noticia_1.jpg" alt="Imagen de la noticia">
+      <div class="noticia-content">
+        <h1 class="noticia-title">Nuevas facilidades fiscales 2025</h1>
+        <p>El SAT ha anunciado un paquete de nuevas disposiciones fiscales para el año 2025, enfocadas en simplificar el cumplimiento para personas físicas y morales.</p>
+        <p>Entre los principales cambios se encuentran mejoras en el sistema de facturación electrónica, nuevas guías para declaraciones provisionales y la inclusión de herramientas digitales que permiten una mayor automatización de los procesos fiscales.</p>
+        <p>En Bautista Asociados, estamos listos para asesorarte en cada paso y garantizar el cumplimiento conforme a los nuevos lineamientos.</p>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .noticia-container {
+      padding: 3rem 1.5rem;
+      max-width: 56.25rem;
+      margin: 0 auto;
+    }
+
+    .noticia {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .noticia-img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .noticia-content h1 {
+      font-size: 2rem;
+      color: var(--gris-claro);
+    }
+
+    .noticia-content p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--gris-claro);
+    }
+
+    @media (min-width: 768px) {
+      .noticia {
+        flex-direction: row;
+      }
+      .noticia-img {
+        max-width: 50%;
+      }
+      .noticia-content {
+        padding-left: 2rem;
+      }
+    }
+  </style>
+
+</body>
+</html>

@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Illuminate\Support\Facades\View;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -23,13 +24,27 @@ class DashboardPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+        
             ->default()
             ->id('dashboard')
             ->path('dashboard')
+            ->brandLogo(asset('img/BA PNG.svg'))
+            ->brandLogoHeight('4rem')
+           /*  ->viteTheme('resources/css/filament-custom.css') */
+
+            /* ->viteTheme('resources/css/app.css') */
+
+
+            ->darkMode(false)
             ->login()
+            
+
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#B8CD42',
             ])
+
+            
+
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([

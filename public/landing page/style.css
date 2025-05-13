@@ -1,0 +1,447 @@
+/* Paleta de colores base */
+:root {
+    --verde-BA: #B8CD42;
+    --gris-claro: #616163;
+    --rojo-BA: #CB645B;
+    --blanco: #FFFFFF;
+}
+
+/* Estilos globales */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--blanco);
+    color: var(--gris-claro);
+}
+
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 2.5rem;
+    background-color: var(--blanco);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+.navbar-logo BA img {
+    height: 2rem;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: var(--gris-claro);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: var(--verde-BA);
+} /* Parte 1 */
+
+
+
+/* Sección Hero Principal */
+.hero {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 6.25rem 1.25rem 5rem;	
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+
+
+.logo {
+    height: 5 rem;
+    margin-bottom: 0rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--gris-claro);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 1.875rem;
+    color: var(--gris-claro);
+}
+
+.btn-primary {
+    padding: 12px 24px;
+    background-color: var(--verde-BA);
+    color: var(--blanco);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #9fbf2d;
+}
+
+/* Sección de Servicios */
+.servicios {
+    padding: 5rem 1.25rem;
+    background-color: #f4f4f4; /* Fondo gris claro para diferenciarla visualmente */
+    text-align: center;
+}
+
+.servicios h2 {
+    font-size: 2rem;
+    color: var(--gris-claro); /* Título con color institucional */
+    margin-bottom: 40px;
+}/*  */
+/* parte 3 */
+.servicios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicio-item {
+    background-color: var(--blanco); /* Fondo blanco con sombra para resaltar */
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-item:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-item i {
+    font-size: 2.5rem;
+    color: var(--verde-BA); /* Íconos con color institucional */
+    margin-bottom: 15px;
+}
+
+.servicio-item h3 {
+    font-size: 1.3rem;
+    color: var(--gris-claro);
+    margin-bottom: 10px;
+}
+
+.servicio-item p {
+    font-size: 1rem;
+    color: var(--gris-claro);
+    line-height: 1.5;
+}
+/* Sección de Beneficios */
+.beneficios {
+    padding: 80px 20px;
+    background-color: #ffffff; /* Fondo blanco para mantener consistencia */
+    text-align: center;
+}
+
+.beneficios h2 {
+    font-size: 2rem;
+    color: var(--gris-claro); /* Título con color institucional */
+    margin-bottom: 40px;
+}
+
+.beneficios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}/*fin de parte 3  */
+
+
+/* inicio de parte 4 */.beneficio-item {
+    background-color: #f4f4f4; /* Tarjetas con fondo sutilmente diferente */
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio-item:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.beneficio-item i {
+    font-size: 2.5rem;
+    color: var(--verde-BA); /* Íconos con color institucional */
+    margin-bottom: 15px;
+}
+
+.beneficio-item h3 {
+    font-size: 1.3rem;
+    color: var(--gris-claro);
+    margin-bottom: 10px;
+}
+
+.beneficio-item p {
+    font-size: 1rem;
+    color: var(--gris-claro);
+    line-height: 1.5;
+}
+
+
+/* Sección Sobre Nosotros */
+.sobre-nosotros {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.sobre-nosotros h2 {
+    font-size: 2rem;
+    color: var(--gris-claro);
+    margin-bottom: 30px;
+}
+
+.sobre-nosotros-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--gris-claro);
+    line-height: 1.6;
+}
+
+
+/* Sección de Noticias - Carrusel */
+.noticias {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+    height: auto;
+    object-fit: cover;
+}
+/* fin de parte 4 */
+/* Efecto hover y botón Leer más */
+.carousel-caption {/* inicio parte 5 */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-item:hover .carousel-caption {
+    opacity: 1;
+}
+
+.btn-leer-mas {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: var(--verde-BA);
+    color: var(--blanco);
+    padding: 8px 16px;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-leer-mas:hover {
+    background-color: #9fbf2d;
+}
+
+/* Flechas de navegación */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.carousel-control:hover {
+    background: rgba(0,0,0,0.5);
+}
+
+.carousel-control.prev {
+    left: 0;
+}
+
+.carousel-control.next {
+    right: 0;
+}
+/* Sección Contacto */
+.contacto {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contacto h2 {
+    font-size: 2rem;
+    color: var(--gris-claro);
+    margin-bottom: 40px;
+}
+
+.contacto-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--gris-claro);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    resize: vertical;
+}
+
+.contacto-form button.btn-primary {
+    padding: 12px 24px;
+    background-color: var(--verde-BA);
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: none; /* Igual que el botón Contáctanos */
+}/* fin de parte 5 */
+
+.contacto-form button.btn-primary:hover {/* inicio 6 */
+    background-color: #9fbf2d;
+}
+
+.contacto-form button.btn-primary:focus {
+    outline: none;
+}
+
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+   
+    border-color: var(--verde-BA);
+    box-shadow: 0 0 5px rgba(184, 205, 66, 0.5);
+}
+
+
+
+/* Footer */
+.footer {
+    background-color: var(--gris-claro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.95rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Botón de acceso administrativo - ahora notorio */
+.admin-login-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--rojo-BA);
+    color: var(--blanco);
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-login-btn i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.admin-login-btn:hover {
+    background-color: #B8CD42;
+    transform: scale(1.05);
+}/* fin 6 */

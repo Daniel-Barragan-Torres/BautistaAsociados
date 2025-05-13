@@ -1,0 +1,24 @@
+[
+    {
+      "titulo": "Nuevas facilidades fiscales para PYMES en 2025",
+      "descripcion": "El SAT anuncia un nuevo paquete de facilidades fiscales para pequeñas y medianas empresas, buscando impulsar su formalización.",
+      "imagen_url": "img/sat_noticia_1.jpg",
+      "enlace_externo": "https://www.sat.gob.mx/facilidades-2025",
+      "fecha_publicacion": "2025-04-08"
+    },
+    {
+      "titulo": "Actualización del Buzón Tributario",
+      "descripcion": "Con la nueva interfaz, el buzón tributario permite ahora mayor personalización de alertas y vinculación con dispositivos móviles.",
+      "imagen_url": "img/sat_noticia_2.jpg",
+      "enlace_externo": "https://www.sat.gob.mx/buzon-2025",
+      "fecha_publicacion": "2025-04-05"
+    },
+    {
+      "titulo": "Declaración Anual: fechas clave que debes conocer",
+      "descripcion": "Contribuyentes físicos y morales deben presentar su declaración entre el 1 y 30 de abril. Aquí te dejamos la guía oficial.",
+      "imagen_url": "img/sat_noticia_3.jpg",
+      "enlace_externo": "https://www.sat.gob.mx/declaracion-anual",
+      "fecha_publicacion": "2025-04-01"
+    }
+  ]
+  
