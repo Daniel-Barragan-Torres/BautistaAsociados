@@ -18,6 +18,7 @@ class Estado extends Model
     protected $table = 
         'estados';
 
+        
     
 }
 
