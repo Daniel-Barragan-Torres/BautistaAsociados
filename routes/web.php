@@ -24,6 +24,7 @@ Route::view('/calendario', 'calendario')->name('calendario');
 /* calendario part 3 */
 Route::get('/eventos', [CalendarioController::class, 'eventos']);
 
+Route::get('/eventosdet', [CalendarioController::class, 'eventosdet']);
 
 Route::middleware(['auth'])->get('/eventos', [CalendarioController::class, 'eventos'])->name('eventos');
 

@@ -42,8 +42,111 @@
 
 <!-- Modal ver 2 -->
 
+<div id="event-modal" style="display:none;" class="modal-cita">
+    <div class="modal-content">
+        <h2 class="modal-title" id="modal-title">Asunto de la cita</h2>
+        <div class="modal-row">
+            <label>Cliente:</label>
+            <span id="modal-client"></span>
+        </div>
+        <div class="modal-row">
+            <label>Inicio:</label>
+            <span id="modal-start"></span>
+        </div>
+        <div class="modal-row">
+            <label>Fin:</label>
+            <span id="modal-end"></span>
+        </div>
+        <div class="modal-actions">
+            <button onclick="document.getElementById('event-modal').style.display='none'">Cerrar</button>
+        </div>
+    </div>
+</div>
 
+<style>
+    /* MODALS */
+    /* Fondo del modal */
+    .modal-cita {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.4);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        backdrop-filter: blur(2px);
+        transition: background 0.4s ease;
+    }
 
+    /* Contenedor principal */
+    .modal-cita .modal-content {
+        background-color: #fff;
+        border-radius: 14px;
+        padding: 32px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        width: 480px;
+        max-width: 90%;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.35s ease;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+    }
+
+    /* Animación de aparición */
+    .modal-cita.show .modal-content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Título centrado */
+    .modal-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Filas de información */
+    .modal-row {
+        display: flex;
+        gap: 10px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .modal-row label {
+        font-weight: 600;
+        color: #444;
+        min-width: 80px;
+    }
+
+    /* Botón */
+    .modal-actions {
+        margin-top: 24px;
+        text-align: center;
+    }
+
+    .modal-actions button {
+        background-color: #B8CD42;
+        color: white;
+        padding: 10px 24px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .modal-actions button:hover {
+        background-color: #a4bb38;
+        transform: scale(1.05);
+    }
+</style>
 
 <style>
     .modal-cita,
@@ -143,7 +246,33 @@
     }
 </style>
 
+
 <script>
+
+    /* cerrar modal  */
+    document.addEventListener('click', function (e) {
+        const modal = document.getElementById('event-modal');
+        const content = modal.querySelector('.modal-content');
+
+        if (
+            modal.classList.contains('show') &&
+            !content.contains(e.target)
+        ) {
+            modal.classList.remove('show');
+            modal.style.display = 'none';
+        }
+    });
+
+    /* desmarcar highlitghts */
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.fc-event')) {
+            document.querySelectorAll('.fc-event').forEach(el => {
+                el.classList.remove('highlighted-event');
+            });
+        }
+    });
+
+    /* Calendario  */
     document.addEventListener('DOMContentLoaded', function () {
         const calendarEl = document.getElementById('calendar');
         if (!calendarEl) return;
@@ -158,8 +287,9 @@
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,listWeek',
             },
+            //events: [],
             events: '/eventos',
-            eventColor: '#3ab3d1',
+            eventColor: '#3ab3d1  ',
             eventDisplay: 'block',
 
             eventDidMount: function (info) {
@@ -175,17 +305,34 @@
                 }
             },
 
+            /* click para el modal - detalle cita */
             eventClick: function (info) {
-                const citaId = info.event.id;
+                const eventId = info.event.id;
 
-                // Usar modal nativo de Filament
-                Livewire.dispatch('open-modal', {
-                    id: 'verCita', // nombre de tu Action
-                    arguments: { recordId: citaId }
-                });
+                fetch(`/eventosdet?id=${eventId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Asegúrate de que la respuesta esté en data.eventos, o ajusta según el formato real
+                        const evento = Array.isArray(data) ? data.find(e => e.id == eventId) : data;
+
+                        document.getElementById('modal-title').textContent = evento.asunto || 'Sin asunto';
+                        document.getElementById('modal-client').textContent = evento.cliente || 'Desconocido';
+                        document.getElementById('modal-start').textContent = new Date(evento.start).toLocaleString();
+                        document.getElementById('modal-end').textContent = new Date(evento.end).toLocaleString();
+
+                        document.getElementById('event-modal').classList.add('show');
+                        document.getElementById('event-modal').style.display = 'flex';
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener los detalles:', error);
+                    });
             }
+
+
         });
 
         calendar.render();
     });
+
+
 </script>
