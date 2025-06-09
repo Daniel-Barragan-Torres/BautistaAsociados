@@ -17,6 +17,8 @@ use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Filament\Resources\CitaResource\Widgets\CalendarioCitas;
+
 class CitaResource extends Resource
 {
     protected static ?string $model = Cita::class;
@@ -30,12 +32,12 @@ class CitaResource extends Resource
     public static function getWidgets(): array
     {
         return [
-            \App\Filament\Resources\CitaResource\Widgets\CalendarioCitas::class,
+            CalendarioCitas::class,
         ];
     }
 
 
-    /* End of Calendar cañoz */
+    /* End of Calendar caliz */
     public static function form(Form $form): Form
     {
         return $form
@@ -119,9 +121,11 @@ class CitaResource extends Resource
     public static function getPages(): array
     {
         return [
+
             'index' => Pages\ListCitas::route('/'),
             'create' => Pages\CreateCita::route('/create'),
             'edit' => Pages\EditCita::route('/{record}/edit'),
+            'view' => Pages\ViewCita::route('/{record}'),
         ];
     }
 }

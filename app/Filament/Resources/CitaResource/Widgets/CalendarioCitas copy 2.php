@@ -60,7 +60,6 @@ class CalendarioCitas extends FullCalendarWidget
     /* Fetch */
     public function fetchEvents(array $fetchInfo): array
     {
-        info('[Calendario] fetchEvents ejecutado');
         return Cita::query()
             ->with('cliente')
             ->where('fecha_inicio', '>=', $fetchInfo['start'])
@@ -85,67 +84,28 @@ class CalendarioCitas extends FullCalendarWidget
 
         return [
             createAction::make()
-                /* ->mountUsing(
-                     function (Forms\Form $form, array $arguments) {
+                ->mountUsing(
+                    function (Forms\Form $form, array $arguments) {
 
-                         $form->fill([
-                             'fecha_inicio' => $arguments['event']['start'] ?? now(),
-                             'fecha_fin' => $arguments['event']['end'] ?? now(),
-                         ]);
-                     }
-                 )*/
-
-                ->mountUsing(function (Forms\Form $form, array $arguments) {
-                    $form->fill([
-                        'fecha_inicio' => $arguments['start'] ?? now(),
-                        'fecha_fin' => $arguments['end'] ?? now()->addHour(),
-                    ]);
-                }),
-
-
-            EditAction::make()
-                ->fillForm(function (Model $record, array $arguments): array {
-                    return [
-                        'cliente_id' => $record->cliente_id,
-                        'asunto' => $record->asunto,
-                        'fecha_inicio' => $arguments['event']['start'] ?? $record->fecha_inicio,
-                        'fecha_fin' => $arguments['event']['end'] ?? $record->fecha_fin,
-                    ];
-                })
-                ->modalHeading('Editar cita')
-                // ->modalWidth('sm')
-                ->modalCloseButton(false)
-                ->modalCancelAction(false)
-                ->modalSubmitAction(false)
-                ->closeModalByClickingAway(false)
-                ->extraModalFooterActions(fn(Action $action) => [
-                    $action->makeExtraModalAction('Guardar', ['save' => true])->color('success'),
-                    $action->makeExtraModalAction('Cancelar', ['cancel' => true])->color('gray'),
-                ])
-                ->action(function (array $data, array $arguments, Model $record): void {
-                    if ($arguments['cancel'] ?? false) {
-                        // Revertimos visualmente en JS automáticamente gracias al config 'eventDrop: revert'
-                        $this->dispatch('refreshFullcalendarEvents'); // si tienes este método Livewire
-                        return;
+                        $form->fill([
+                            'fecha_inicio' => $arguments['event']['start'] ?? now(),
+                            'fecha_fin' => $arguments['event']['end'] ?? now(),
+                        ]);
                     }
+                ),
 
-                    if ($arguments['save'] ?? false) {
-                        $record->update($data);
+
+
+            editAction::make()
+                ->mountUsing(
+                    function (Forms\Form $form, array $arguments) {
+
+                        $form->fill([
+                            'fecha_inicio' => $arguments['event']['start'] ?? now(),
+                            'fecha_fin' => $arguments['event']['end'] ?? now(),
+                        ]);
                     }
-                }),
-
-            // DeleteAction::make(),
-
-            /*   editAction::make()
-                  ->mountUsing(
-                      function (Forms\Form $form, array $arguments) {
-
-                          $form->fill([
-                              'fecha_inicio' => $arguments['event']['start'] ?? now(),
-                              'fecha_fin' => $arguments['event']['end'] ?? now(),
-                          ]);
-                      }
-                  ) */
+                )
 
         ];
 
@@ -195,14 +155,11 @@ class CalendarioCitas extends FullCalendarWidget
             //->modalWidth('sm')
             ->form($this->getFormSchema())
             ->mountUsing(function ($record, Forms\Form $form, array $arguments) {
-                $end = $arguments['event']['end'] ?? $record->fecha_fin;
                 $form->fill([
                     'cliente_id' => $record->cliente_id ?? null,
                     'asunto' => $record->asunto,
                     'fecha_inicio' => $arguments['event']['start'] ?? $record->fecha_inicio,
-                   // 'fecha_fin' => $arguments['event']['end'] ?? $record->fecha_fin,
-                    'fecha_fin' => Carbon::parse($end)->endOfDay(),
-    
+                    'fecha_fin' => $arguments['event']['end'] ?? $record->fecha_fin,
 
 
                 ]);
@@ -218,7 +175,6 @@ class CalendarioCitas extends FullCalendarWidget
     {
         return [
             Select::make('cliente_id')
-                ->searchable()
                 ->placeholder('Seleccione un cliente')
                 ->label('Cliente')
                 ->relationship('cliente', 'nombre')

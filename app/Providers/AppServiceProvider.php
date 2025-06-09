@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use App\Filament\Resources\CitaResource\Widgets\CalendarioCitas;
+use Carbon\Carbon;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,7 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-        
+
+        Livewire::component('widgets.calendario-citas', CalendarioCitas::class);
+        Carbon::setLocale('es');
     }
+
+
+
 }

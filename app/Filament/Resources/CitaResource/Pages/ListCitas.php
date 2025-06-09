@@ -16,14 +16,21 @@ use Illuminate\Contracts\View\View;
 class ListCitas extends ListRecords
 {
     protected static string $resource = CitaResource::class;
+    /*
+        public function getHeader(): View
+        {
+            return view('CitaResource.widgets.calendario-citas-directo'); //  archivo blade
+        }
+    */
 
-    public function getHeader(): View
+    /* public function getHeaderWidgets(): array
     {
-        return view('CitaResource.widgets.calendario-citas-directo'); //  archivo blade
-    }
+        return [
+            CalendarioCitas::class,
+        ];
+    } */
 
-
-
+    /*
     public function getActions(): array
     {
         return [
@@ -47,7 +54,7 @@ class ListCitas extends ListRecords
                 ->hidden(fn() => true), // oculto hasta que se llame por código JS
         ];
     }
-
+*/
     protected function getHeaderActions(): array
     {
         return [

@@ -9,6 +9,9 @@
 
 
 
+<x-filament::button wire:click="$dispatch('open-modal', { id: 'verCita', arguments: { recordId: 3 } })">
+    Ver cita manual
+</x-filament::button>
 
 
 
@@ -174,6 +177,7 @@
                     titleEl.textContent = title.slice(0, 22) + '...';
                 }
             },
+            
 
             eventClick: function (info) {
                 const citaId = info.event.id;
